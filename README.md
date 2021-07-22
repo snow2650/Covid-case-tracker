@@ -1,11 +1,19 @@
-# My Personal Project
+# COVID-19 Case Tracker
 
-## A subtitle
+## An App for Mapping the confirmed cases
 
-A *bulleted* list:
-- item 1
-- item 2
-- item 3
+Since the pandemic happened, the government tried to track those cases to stop the influence.
+This app provides **a platform for collecting and mapping** the show-up cases.
+It aims to help to determine which areas should be alarmed and sanitized. 
 
-An example of text with **bold** and *italic* fonts.  Note that the IntelliJ markdown previewer doesn't seem to render 
-the bold and italic fonts correctly but they will appear correctly on GitHub.
+Three *features* of this tracker:
+- A virtualized map with each case have its location, time(date) and ID
+- The record can be saved and recall
+- The record is Searchable by location, time or ID
+
+User Stories
+- As a user, I want to be able to add cases I received.
+- As a user, I want to be able to view the cases I added.
+- As a user, I want to be able to remove the cases.
+- As a user, I want to be able to search the certain case by location, time or ID.
+
