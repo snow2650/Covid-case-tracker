@@ -1,38 +1,35 @@
 package model;
 
-import com.sun.scenario.effect.impl.sw.sse.SSEEffectPeer;
-
 public class CaseInfo {
-    private int venue;
+    private int location;
     private int time;
-    private String caseID;
+    private int caseID;
 
-    //REQUIRE:
+    //REQUIRE:venue, time caseID are not empty
     //MODIFIES:
-    //EFFECTS:
+    //EFFECTS:is a set of basic information
+    //        location is a number from 1~100, time is 0000~2400
+    //        Different caseIDs represent different persons. from 500-600
 
-    public CaseInfo(int venue, int time, String caseID) {
-        this.venue = venue;
+    public CaseInfo(int location, int time, int caseID) {
+        this.location = location;
         this.time = time;
         this.caseID = caseID;
-
-
-
     }
 
     // MODIFIES: this
-    // EFFECTS: returns a number which represent a place in this AppearInfo
-    public int getVenue() {
-        return venue;
+    // EFFECTS: returns a number which represent a place
+    public int getLocation() {
+        return location;
     }
 
-    // EFFECTS: returns a number which represent left minuets in this AppearInfo
+    // EFFECTS: returns a number which represent the time the case showed up
     public int getTime() {
         return time;
     }
 
-    // EFFECTS: returns a number which represent a pokemon in this AppearInfo
-    public String getCaseID() {
+    // EFFECTS: returns an ID which represent a person
+    public int getCaseID() {
         return caseID;
     }
 
