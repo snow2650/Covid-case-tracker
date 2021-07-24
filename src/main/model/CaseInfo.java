@@ -8,8 +8,8 @@ public class CaseInfo {
     //REQUIRE:venue, time caseID are not empty
     //MODIFIES:
     //EFFECTS:is a set of basic information
-    //        location is a number from 1~100, time is 0000~2400
-    //        Different caseIDs represent different persons. from 500-600
+    //        location is a number from 1~100, time is 0~24
+    //        Different caseIDs represent different persons from 500-600
 
     public CaseInfo(int location, int time, int caseID) {
         this.location = location;

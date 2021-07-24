@@ -1,6 +1,5 @@
 package ui;
 
-import com.sun.xml.internal.bind.v2.model.core.ID;
 import model.CaseInfo;
 import model.Condition;
 
@@ -21,16 +20,26 @@ public class CaseTracker {
     private void runTracker() {
         boolean keepGoing = true;
         String command;
+        LinkedList<CaseInfo> caseInfos = new LinkedList();
+        init(caseInfos);
         while (keepGoing) {
             displayMenu();
             command = input.next().toLowerCase();
             if (command.equals("q")) {
                 keepGoing = false;
             } else {
-                processCommand(command);
+                processCommand(command, caseInfos);
             }
         }
         System.out.println("\nSee you next time!");
+    }
+
+    private void init(LinkedList<CaseInfo> caseInfos) {
+        caseInfos.addLast(new CaseInfo(1,0,500));
+        caseInfos.addLast(new CaseInfo(67,12,546));
+        caseInfos.addLast(new CaseInfo(100,24,600));
+
+        input = new Scanner(System.in);
     }
 
     // MODIFIES: this
@@ -38,13 +47,13 @@ public class CaseTracker {
     public void processCommand(String command, LinkedList<CaseInfo> caseInfos) {
         if (command.equals("i")) {  //input basic information
             inputInfo(caseInfos);
-        } else if (command.equals("d")) {  //delete basic information
+        } else if (command.equals("r")) {
             removeInfo(caseInfos);
         } else if (command.equals("t")) {  //search by time
             searchTime(caseInfos);
         } else if (command.equals("l")) {  //search by place
             searchLocation(caseInfos);
-        } else if (command.equals("p")) {  //search pokemon by number
+        } else if (command.equals("p")) {  //search id
             searchID(caseInfos);
         } else if (command.equals("a")) {  //print all information
             printall(caseInfos);
@@ -55,9 +64,9 @@ public class CaseTracker {
 
 
     // MODIFIES: this, caseInfos
-    // EFFECTS: input case's venue from 1-100, time from 0000-2400, and ID
+    // EFFECTS: input case's location from 1-100, time from 0000-2400, and ID
     public void inputInfo(LinkedList<CaseInfo> caseInfos) {
-        System.out.print("Enter venue (1~100), time (0000-2400), ID (500-600):");
+        System.out.print("Enter location (1~100), time (0-24), ID (500-600):");
         int location = input.nextInt();
         int time = input.nextInt();
         int id = input.nextInt();
@@ -67,7 +76,7 @@ public class CaseTracker {
     // MODIFIES: this, caseInfos
     // EFFECTS: delete the info that already exist
     public void removeInfo(LinkedList<CaseInfo> caseInfos) {
-        System.out.print("Enter location (1~100) and ID. (A~Z):");
+        System.out.print("Enter location (1~100) and ID. (500~600):");
         int location = input.nextInt();
         int time = 1;
         int id = input.nextInt();
@@ -77,7 +86,7 @@ public class CaseTracker {
     // MODIFIES: this
     // EFFECTS: search the info by ID
     public void searchID(LinkedList<CaseInfo> caseInfos) {
-        System.out.print("Enter pokemon No. (1~151):");
+        System.out.print("Enter ID No. (500~600):");
         int location = 1;
         int time = 1;
         int id = input.nextInt();
@@ -85,9 +94,9 @@ public class CaseTracker {
     }
 
     // MODIFIES: this
-    // EFFECTS: search the info by the venue
+    // EFFECTS: search the info by the location
     public void searchLocation(LinkedList<CaseInfo> caseInfos) {
-        System.out.print("Enter venue (1~100):");
+        System.out.print("Enter location (1~100):");
         int location = input.nextInt();
         int time = 1;
         int id = 1;
@@ -95,12 +104,12 @@ public class CaseTracker {
     }
 
     // MODIFIES: this
-    // EFFECTS: search the info by the lefttime
+    // EFFECTS: search the info by the time
     public void searchTime(LinkedList<CaseInfo> caseInfos) {
-        System.out.print("Enter the minimal left hour (1~24):");
-        int venue = 1;
+        System.out.print("Enter the hour (0~24):");
+        int location = 1;
         int time = input.nextInt();
-        int pokemon = 1;
+        int id = 1;
         Condition.searchTimeCon(caseInfos, location, time, id);
     }
 
@@ -119,9 +128,10 @@ public class CaseTracker {
         System.out.println("select from:");
         System.out.println("\ti -> input basic information");
         System.out.println("\tr -> remove basic information");
-        System.out.println("\tf -> find basic information");
+        System.out.println("\tl -> search by location");
+        System.out.println("\tt -> search by time");
+        System.out.println("\tp -> search person by ID");
         System.out.println("\ta -> print all information");
-
         System.out.println("\tq -> quit");
     }
 
