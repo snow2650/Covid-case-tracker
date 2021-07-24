@@ -3,38 +3,46 @@ package model;
 import java.util.LinkedList;
 
 public class Condition {
-    // REQUIRES: input case's location from 1-100, time from 0-24, and ID from 500-600
+
+    private static int locationMin = 1;
+    private static int locationMax = 100;
+    private static int timeMin = 0;
+    private static int timeMax = 24;
+    private static int idMin = 500;
+    private static int idMax = 600;
+
+    // REQUIRES: x
     // MODIFIES: this
     // EFFECTS: return the information if add successfully, otherwise return error message
     public static void inputInfoCon(LinkedList<CaseInfo> caseInfos, int location, int time, int id) {
-        if (location < 1 || location > 100) {
+        if (location < locationMin || location > locationMax) {
             System.out.println("invalid location");
-        } else if (time < 0 || time > 24) {
+        } else if (time < timeMin || time > timeMax) {
             System.out.println("invalid time");
-        } else if (id < 500 || id > 600) {
+        } else if (id < idMin || id > idMax) {
             System.out.println("invalid ID");
         } else {
-            if (casecheck(caseInfos,"i", location, time, id).isEmpty()) {
-                printin(casecheck(caseInfos,"i", location, time, id));
-                System.out.println("(" + location + ", " + time + ", " + id + ") was added successfully");
+            if (caseCheck(caseInfos,"i", location, time, id).isEmpty()) {
+                printin(caseCheck(caseInfos,"i", location, time, id));
+                System.out.println("Case (" + location + ", " + time + ", " + id + ") was added successfully");
             } else {
-                System.out.println("Fail! The location in (" + location + ") was occupied");
+                System.out.println("Fail! The data has existed");
             }
         }
 
     }
 
-    // REQUIRES: input a person's venue from 1-100, and number from 500-600
+    // REQUIRES: x
     // MODIFIES: this
     // EFFECTS: delete the info that already exists and return message
     public static void removeInfoCon(LinkedList<CaseInfo> caseInfos, int location, int time, int id) {
-        if (location < 1 || location > 100) {
+        if (location < locationMin || location > locationMax) {
             System.out.println("invalid location");
-        } else if (id < 500 || id > 600) {
+        } else if (id < idMin || id > idMax) {
             System.out.println("invalid ID");
         } else {
-            if (!casecheck(caseInfos,"r", location, time, id).isEmpty()) {
-                printin(casecheck(caseInfos,"r", location, time, id));
+            if (!caseCheck(caseInfos,"r", location, time, id).isEmpty()) {
+                printin(caseCheck(caseInfos,"r", location, time, id));
                 System.out.println("was removed successfully");
             } else {
                 System.out.println("Data was not found");
@@ -43,17 +51,17 @@ public class Condition {
 
     }
 
-    // REQUIRES: person ID is from 500-600
+    // REQUIRES: x
     // MODIFIES: this
     // EFFECTS: search person by number and return its basic information
     public static boolean searchIDCon(LinkedList<CaseInfo> caseInfos, int location, int time, int id) {
         boolean found = false;
-        if (id < 500 || id > 600) {
+        if (id < idMin || id > idMax) {
             System.out.println("invalid ID");
 
         } else {
-            if (!casecheck(caseInfos,"p", location, time, id).isEmpty()) {
-                printin(casecheck(caseInfos,"p", location, time, id));
+            if (!caseCheck(caseInfos,"p", location, time, id).isEmpty()) {
+                printin(caseCheck(caseInfos,"p", location, time, id));
                 System.out.println("was found");
                 found = true;
             } else {
@@ -64,17 +72,17 @@ public class Condition {
 
     }
 
-    // REQUIRES: location is represented by number 1-100
+    // REQUIRES: x
     // MODIFIES: this
     // EFFECTS: search pokemon by venue and return its basic information
     public static boolean searchLocationCon(LinkedList<CaseInfo> caseInfos, int location, int time, int id) {
         boolean found = false;
-        if (location < 1 || id > 100) {
+        if (location < locationMin || id > locationMax) {
             System.out.println("invalid location");
 
         } else {
-            if (!casecheck(caseInfos,"l", location, time, id).isEmpty()) {
-                printin(casecheck(caseInfos,"l", location, time, id));
+            if (!caseCheck(caseInfos,"l", location, time, id).isEmpty()) {
+                printin(caseCheck(caseInfos,"l", location, time, id));
                 System.out.println("was found");
                 found = true;
             } else {
@@ -85,17 +93,17 @@ public class Condition {
 
     }
 
-    // REQUIRES: positive integer which Max is 24 min
+    // REQUIRES: x
     // MODIFIES: this
     // EFFECTS: search pokemon by left time and return its basic information
     public static boolean searchTimeCon(LinkedList<CaseInfo> caseInfos, int location, int time, int id) {
         boolean found = false;
-        if (time < 0 || time > 24) {
+        if (time < timeMin || time > timeMax) {
             System.out.println("invalid time");
 
         } else {
-            if (!casecheck(caseInfos,"t", location, time, id).isEmpty()) {
-                printin(casecheck(caseInfos,"t", location, time, id));
+            if (!caseCheck(caseInfos,"t", location, time, id).isEmpty()) {
+                printin(caseCheck(caseInfos,"t", location, time, id));
                 System.out.println("was found");
                 found = true;
             } else {
@@ -107,7 +115,7 @@ public class Condition {
     }
 
     // MODIFIES: this
-    // EFFECTS: print all the informations of the Linkedlist
+    // EFFECTS: print all the information in the list
     public static void printin(LinkedList<CaseInfo> answer) {
         for (int i = 0; i < answer.size(); i++) {
             System.out.println("(" + answer.get(i).getLocation() + ", "
@@ -116,7 +124,7 @@ public class Condition {
         }
     }
 
-    public static LinkedList<CaseInfo> casecheck(LinkedList<CaseInfo> caseInfos,
+    public static LinkedList<CaseInfo> caseCheck(LinkedList<CaseInfo> caseInfos,
                                                  String type, int location, int time, int id) {
         LinkedList<CaseInfo> answer = new LinkedList();
         for (int i = 0; i < caseInfos.size(); i++) {
@@ -149,9 +157,7 @@ public class Condition {
             case "p":
                 return caseInfos.get(i).getCaseID() == id;
             default:
-                return false; // need exception??
+                return false;
         }
     }
-
-
 }

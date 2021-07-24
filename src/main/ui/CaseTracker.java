@@ -8,7 +8,7 @@ import java.util.LinkedList;
 import java.util.Scanner;
 
 public class CaseTracker {
-    private ArrayList<CaseInfo> caseInfos;
+    private LinkedList<CaseInfo> caseInfos;
     private Scanner input;
 
     public CaseTracker() {
@@ -21,7 +21,8 @@ public class CaseTracker {
         boolean keepGoing = true;
         String command;
         LinkedList<CaseInfo> caseInfos = new LinkedList();
-        init(caseInfos);
+        input = new Scanner(System.in);
+        //init(caseInfos);
         while (keepGoing) {
             displayMenu();
             command = input.next().toLowerCase();
@@ -31,16 +32,13 @@ public class CaseTracker {
                 processCommand(command, caseInfos);
             }
         }
-        System.out.println("\nSee you next time!");
+        System.out.println("\nGood Bye! Wish you healthy!");
     }
 
-    private void init(LinkedList<CaseInfo> caseInfos) {
-        caseInfos.addLast(new CaseInfo(1,0,500));
-        caseInfos.addLast(new CaseInfo(67,12,546));
-        caseInfos.addLast(new CaseInfo(100,24,600));
-
-        input = new Scanner(System.in);
-    }
+   // private void init(LinkedList<CaseInfo> caseInfos) {
+        //caseInfos.addLast(new CaseInfo(1,0,500));
+        //input = new Scanner(System.in);
+    //}
 
     // MODIFIES: this
     // EFFECTS: processes user command
@@ -86,7 +84,7 @@ public class CaseTracker {
     // MODIFIES: this
     // EFFECTS: search the info by ID
     public void searchID(LinkedList<CaseInfo> caseInfos) {
-        System.out.print("Enter ID No. (500~600):");
+        System.out.print("Enter ID (500~600):");
         int location = 1;
         int time = 1;
         int id = input.nextInt();
@@ -106,7 +104,7 @@ public class CaseTracker {
     // MODIFIES: this
     // EFFECTS: search the info by the time
     public void searchTime(LinkedList<CaseInfo> caseInfos) {
-        System.out.print("Enter the hour (0~24):");
+        System.out.print("Enter hour (0~24):");
         int location = 1;
         int time = input.nextInt();
         int id = 1;
@@ -125,12 +123,13 @@ public class CaseTracker {
     // EFFECTS: displays menu of options to user
     public void displayMenu() {
         System.out.println("\nCOVID-19 CASE TRACKER");
-        System.out.println("select from:");
-        System.out.println("\ti -> input basic information");
-        System.out.println("\tr -> remove basic information");
+        System.out.println("\nPLEASE SELECT THE OPERATION YOU NEED");
+        System.out.println("ENTER THE LETTER FROM BELOW:");
+        System.out.println("\ti -> input information");
+        System.out.println("\tr -> remove information");
         System.out.println("\tl -> search by location");
         System.out.println("\tt -> search by time");
-        System.out.println("\tp -> search person by ID");
+        System.out.println("\tp -> search the person by ID");
         System.out.println("\ta -> print all information");
         System.out.println("\tq -> quit");
     }
