@@ -8,7 +8,7 @@ import java.util.LinkedList;
 import static org.junit.jupiter.api.Assertions.*;
 
 class TrackerTest {
-    // delete or rename this class!
+
     LinkedList<CaseInfo> caseInfos;
     private CaseInfo list1;
     private CaseInfo list2;
@@ -61,7 +61,7 @@ class TrackerTest {
     }
 
     @Test
-    public void testdeleteInfoCon() {
+    public void testremoveInfoCon() {
         Condition.inputInfoCon(caseInfos, list1.getLocation(), list1.getTime(), list1.getCaseID());
         Condition.inputInfoCon(caseInfos, list2.getLocation(), list2.getTime(), list2.getCaseID());
         Condition.removeInfoCon(caseInfos, list2.getLocation(), 1, 1);
@@ -80,7 +80,7 @@ class TrackerTest {
     }
 
     @Test
-    public void testearchCaseIDCon() {
+    public void testsearchCaseIDCon() {
         Condition.inputInfoCon(caseInfos, list1.getLocation(), list1.getTime(), list1.getCaseID());
         Condition.inputInfoCon(caseInfos, list2.getLocation(), list2.getTime(), list2.getCaseID());
         assertTrue(Condition.searchIDCon(caseInfos,1, 1, list1.getCaseID()));
@@ -89,22 +89,22 @@ class TrackerTest {
         assertFalse(Condition.searchIDCon(caseInfos, 1, 1, -1));
         assertFalse(Condition.searchIDCon(caseInfos, 1, 1, 10000));
         assertFalse(Condition.searchIDCon(caseInfos, 1, 1, 200));
-        //assertTrue(Condition.searchIDCon(caseInfos, 1, 1, 500));
-        //assertTrue(Condition.searchIDCon(caseInfos, 1, 1, 500));
+        assertTrue(Condition.searchIDCon(caseInfos, 1, 1, 500));
+        assertTrue(Condition.searchIDCon(caseInfos, 99, 15, 550));
     }
 
     @Test
-    public void tessearchLocationCon() {
+    public void testsearchLocationCon() {
         Condition.inputInfoCon(caseInfos, list1.getLocation(), list1.getTime(), list1.getCaseID());
         Condition.inputInfoCon(caseInfos, list2.getLocation(), list2.getTime(), list2.getCaseID());
-        assertTrue(Condition.searchLocationCon(caseInfos, list1.getLocation(), 1, 1));
-        assertTrue(Condition.searchLocationCon(caseInfos, list2.getLocation(), 1, 1));
+        assertTrue(Condition.searchLocationCon(caseInfos, list1.getLocation(), 1, 500));
+        assertTrue(Condition.searchLocationCon(caseInfos, list2.getLocation(), 15, 550));
         assertFalse(Condition.searchLocationCon(caseInfos, list4.getLocation(), 1, 1));
         assertFalse(Condition.searchLocationCon(caseInfos, -1, 1, 1));
         assertFalse(Condition.searchLocationCon(caseInfos, 10000, 1, 1));
         assertFalse(Condition.searchLocationCon(caseInfos, 200, 1, 1));
-        assertTrue(Condition.searchLocationCon(caseInfos, 1, 1, 1));
-        assertTrue(Condition.searchLocationCon(caseInfos, 99, 1, 1));
+        assertTrue(Condition.searchLocationCon(caseInfos, 1, 1, 500));
+        assertTrue(Condition.searchLocationCon(caseInfos, 99, 15, 550));
     }
 
     @Test

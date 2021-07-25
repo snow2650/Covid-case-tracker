@@ -2,8 +2,6 @@ package ui;
 
 import model.CaseInfo;
 import model.Condition;
-
-import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.Scanner;
 
@@ -54,7 +52,7 @@ public class CaseTracker {
         } else if (command.equals("p")) {  //search id
             searchID(caseInfos);
         } else if (command.equals("a")) {  //print all information
-            printall(caseInfos);
+            printAll(caseInfos);
         } else {
             System.out.println("selection not valid...");
         }
@@ -64,7 +62,7 @@ public class CaseTracker {
     // MODIFIES: this, caseInfos
     // EFFECTS: input case's location from 1-100, time from 0000-2400, and ID
     public void inputInfo(LinkedList<CaseInfo> caseInfos) {
-        System.out.print("Enter location (1~100), time (0-24), ID (500-600):");
+        System.out.print("Enter location (1~100), time (0-24), ID (500~1000):");
         int location = input.nextInt();
         int time = input.nextInt();
         int id = input.nextInt();
@@ -74,9 +72,9 @@ public class CaseTracker {
     // MODIFIES: this, caseInfos
     // EFFECTS: delete the info that already exist
     public void removeInfo(LinkedList<CaseInfo> caseInfos) {
-        System.out.print("Enter location (1~100) and ID. (500~600):");
+        System.out.print("Enter location (1~100) and ID. (500~1000):");
         int location = input.nextInt();
-        int time = 1;
+        int time = 0;
         int id = input.nextInt();
         Condition.removeInfoCon(caseInfos, location, time, id);
     }
@@ -84,9 +82,9 @@ public class CaseTracker {
     // MODIFIES: this
     // EFFECTS: search the info by ID
     public void searchID(LinkedList<CaseInfo> caseInfos) {
-        System.out.print("Enter ID (500~600):");
+        System.out.print("Enter ID (500~1000):");
         int location = 1;
-        int time = 1;
+        int time = 0;
         int id = input.nextInt();
         Condition.searchIDCon(caseInfos, location, time, id);
     }
@@ -96,8 +94,8 @@ public class CaseTracker {
     public void searchLocation(LinkedList<CaseInfo> caseInfos) {
         System.out.print("Enter location (1~100):");
         int location = input.nextInt();
-        int time = 1;
-        int id = 1;
+        int time = 0;
+        int id = 500;
         Condition.searchLocationCon(caseInfos, location, time, id);
     }
 
@@ -107,13 +105,13 @@ public class CaseTracker {
         System.out.print("Enter hour (0~24):");
         int location = 1;
         int time = input.nextInt();
-        int id = 1;
+        int id = 500;
         Condition.searchTimeCon(caseInfos, location, time, id);
     }
 
     // MODIFIES: this
     // EFFECTS: print all the info
-    public void printall(LinkedList<CaseInfo> caseInfos) {
+    public void printAll(LinkedList<CaseInfo> caseInfos) {
         Condition.printin(caseInfos);
         System.out.println("------------------------------------------------");
     }
