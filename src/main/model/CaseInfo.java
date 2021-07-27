@@ -6,10 +6,10 @@ public class CaseInfo {
     private int caseID;
 
     //REQUIRE:venue, time caseID are not empty
-    //MODIFIES:
+    //MODIFIES:this
     //EFFECTS:is a set of basic information
     //        location is a number from 1~100, time is 0~24
-    //        Different caseIDs represent different persons from 500-600
+    //        Different caseIDs represent different persons from 500-999
 
     public CaseInfo(int location, int time, int caseID) {
         this.location = location;

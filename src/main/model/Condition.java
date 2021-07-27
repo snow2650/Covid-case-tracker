@@ -2,14 +2,16 @@ package model;
 
 import java.util.LinkedList;
 
+import static model.CaseList.caseCheck;
+
 public class Condition {
 
-    private static int locationMin = 1;
-    private static int locationMax = 100;
-    private static int timeMin = 0;
-    private static int timeMax = 24;
-    private static int idMin = 500;
-    private static int idMax = 1000;
+    private static final int locationMin = 1;
+    private static final int locationMax = 100;
+    private static final int timeMin = 0;
+    private static final int timeMax = 24;
+    private static final int idMin = 500;
+    private static final int idMax = 999;
 
     // REQUIRES: x
     // MODIFIES: this
@@ -23,10 +25,10 @@ public class Condition {
             System.out.println("invalid ID");
         } else {
             if (caseCheck(caseInfos,"i", location, time, caseID).isEmpty()) {
-                printin(caseCheck(caseInfos,"i", location, time, caseID));
-                System.out.println("Case (" + location + ", " + time + ", " + caseID + ") was added successfully");
+                printList(caseCheck(caseInfos,"i", location, time, caseID));
+                System.out.println("(" + location + ", " + time + ", " + caseID + ") was added successfully");
             } else {
-                System.out.println("Fail! The data has existed");
+                System.out.println("Fail! The data has existed.");
             }
         }
 
@@ -42,8 +44,8 @@ public class Condition {
             System.out.println("invalid ID");
         } else {
             if (!caseCheck(caseInfos,"r", location, time, caseID).isEmpty()) {
-                printin(caseCheck(caseInfos,"r", location, time, caseID));
-                System.out.println("was removed successfully");
+                printList(caseCheck(caseInfos,"r", location, time, caseID));
+                System.out.println("(" + location + ", " + time + ", " + caseID + "was removed successfully");
             } else {
                 System.out.println("Data was not found");
             }
@@ -60,12 +62,12 @@ public class Condition {
             System.out.println("invalid ID");
 
         } else {
-            if (!caseCheck(caseInfos,"p", location, time, caseID).isEmpty()) {
-                printin(caseCheck(caseInfos,"p", location, time, caseID));
+            if (!caseCheck(caseInfos,"c", location, time, caseID).isEmpty()) {
+                printList(caseCheck(caseInfos,"c", location, time, caseID));
                 System.out.println("was found");
                 found = true;
             } else {
-                System.out.println("Data was not found");
+                System.out.println("Not Found.");
             }
         }
         return found;
@@ -82,11 +84,11 @@ public class Condition {
 
         } else {
             if (!caseCheck(caseInfos,"l", location, time, caseID).isEmpty()) {
-                printin(caseCheck(caseInfos,"l", location, time, caseID));
+                printList(caseCheck(caseInfos,"l", location, time, caseID));
                 System.out.println("was found");
                 found = true;
             } else {
-                System.out.println("Data was not found");
+                System.out.println("Not Found.");
             }
         }
         return found;
@@ -103,11 +105,11 @@ public class Condition {
 
         } else {
             if (!caseCheck(caseInfos,"t", location, time, caseID).isEmpty()) {
-                printin(caseCheck(caseInfos,"t", location, time, caseID));
+                printList(caseCheck(caseInfos,"t", location, time, caseID));
                 System.out.println("was found");
                 found = true;
             } else {
-                System.out.println("Data was not found");
+                System.out.println("Not Found.");
             }
         }
         return found;
@@ -116,7 +118,7 @@ public class Condition {
 
     // MODIFIES: this
     // EFFECTS: print all the information in the list
-    public static void printin(LinkedList<CaseInfo> answer) {
+    public static void printList(LinkedList<CaseInfo> answer) {
         for (int i = 0; i < answer.size(); i++) {
             System.out.println("(" + answer.get(i).getLocation() + ", "
                     + answer.get(i).getTime() + ", "
@@ -124,11 +126,13 @@ public class Condition {
         }
     }
 
+    /*// MODIFIES: this
+    // EFFECTS: check if there are the same information in the list
     public static LinkedList<CaseInfo> caseCheck(LinkedList<CaseInfo> caseInfos,
                                                  String type, int location, int time, int caseID) {
         LinkedList<CaseInfo> answer = new LinkedList();
         for (int i = 0; i < caseInfos.size(); i++) {
-            if (checkboolean(caseInfos, type, location, time, caseID, i)) {
+            if (checkBoolean(caseInfos, type, location, time, caseID, i)) {
                 answer.addLast(new CaseInfo(caseInfos.get(i).getLocation(),
                         caseInfos.get(i).getTime(), caseInfos.get(i).getCaseID()));
                 if (type.equals("r")) {
@@ -137,13 +141,15 @@ public class Condition {
             }
         }
         if (type.equals("i") && answer.isEmpty()) {
-            caseInfos.addLast(new CaseInfo(location, time, caseID));
+            caseInfos.addLast(new CaseInfo(location, time, caseID));//move this to caseinfolist
         }
         return answer;
     }
 
 
-    private static boolean checkboolean(LinkedList<CaseInfo> caseInfos,
+    // MODIFIES: this
+    // EFFECTS: check if the information follows the rules under each function
+    private static boolean checkBoolean(LinkedList<CaseInfo> caseInfos,
                                         String type, int location, int time, int caseID, int i) {
         switch (type) {
             case "i":
@@ -155,10 +161,10 @@ public class Condition {
                 return caseInfos.get(i).getLocation() == location;
             case "t":
                 return caseInfos.get(i).getTime() == time;//Time is 24 hour format
-            case "p":
+            case "c":
                 return caseInfos.get(i).getCaseID() == caseID;
             default:
                 return false;
         }
-    }
+    }*/
 }
