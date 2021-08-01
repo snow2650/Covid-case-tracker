@@ -45,7 +45,7 @@ public class Condition {
         } else {
             if (!caseCheck(caseInfos,"r", location, time, caseID).isEmpty()) {
                 printList(caseCheck(caseInfos,"r", location, time, caseID));
-                System.out.println("(" + location + ", " + time + ", " + caseID + "was removed successfully");
+                System.out.println("(" + location + ", " + time + ", " + caseID + ") was removed successfully");
             } else {
                 System.out.println("Data was not found");
             }
