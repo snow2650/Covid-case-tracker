@@ -1,0 +1,15 @@
+{
+    "casesInfoS": [
+        {
+            "caseID": 501,
+            "location": 1,
+            "time": 1
+        },
+        {
+            "caseID": 502,
+            "location": 2,
+            "time": 2
+        }
+    ],
+    "name": "My record"
+}

@@ -17,7 +17,7 @@ public class CaseTracker {
     private JsonReader jsonReader;
 
     // EFFECTS: constructs record and runs the CaseTracker application
-    public CaseTracker() {
+    public CaseTracker() throws FileNotFoundException {
         input = new Scanner(System.in);
         record = new Record("Area A's record");
         jsonWriter = new JsonWriter(JSON_STORE);
