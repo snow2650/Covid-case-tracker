@@ -17,3 +17,6 @@ User Stories
 - As a user, I want to be able to remove the cases.
 - As a user, I want to be able to search the certain case by location, time or ID.
 
+New features:
+- The user has ability to save the state of the application
+- The user can reload that state from file and resume exactly where they left off at some earlier time

@@ -1,6 +1,9 @@
 package model;
 
-public class CaseInfo {
+import org.json.JSONObject;
+import persistence.Writable;
+
+public class CaseInfo implements Writable {
     private int location;
     private int time;
     private int caseID;
@@ -31,6 +34,25 @@ public class CaseInfo {
     // EFFECTS: returns an ID which represent a person
     public int getCaseID() {
         return caseID;
+    }
+
+
+    @Override
+    public JSONObject toJson() {
+        JSONObject json = new JSONObject();
+        json.put("location", location);
+        json.put("time", time);
+        json.put("caseID", caseID);
+        return json;
+    }
+
+    public boolean equals(CaseInfo caseInfo) {
+        if (this.getLocation() == caseInfo.getLocation()
+                && this.getTime() == caseInfo.getTime()
+                && this.getCaseID() == caseInfo.getCaseID()) {
+            return true;
+        }
+        return false;
     }
 
 }
