@@ -27,7 +27,7 @@ class JsonReaderTest {
         JsonReader reader = new JsonReader("./data/testReaderEmptyRecord.json");
         try {
             Record record = reader.read();
-            assertEquals("Today's record", record.getName());
+            assertEquals("My record", record.getName());
             assertEquals(0, record.numCaseInfo());
         } catch (IOException e) {
             fail("Couldn't read from file");
@@ -39,7 +39,7 @@ class JsonReaderTest {
         JsonReader reader = new JsonReader("./data/testReaderGeneralRecord.json");
         try {
             Record record = reader.read();
-            assertEquals("Today's record", record.getName());
+            assertEquals("My record", record.getName());
             LinkedList<CaseInfo> caseInfoS = record.getCaseInfo();
             assertEquals(3, caseInfoS.size());
             caseInfoS.get(0).equals(new CaseInfo(1, 1 ,501));

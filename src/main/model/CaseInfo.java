@@ -8,7 +8,7 @@ public class CaseInfo implements Writable {
     private int time;
     private int caseID;
 
-    //REQUIRE:venue, time caseID are not empty
+    //REQUIRE:location, time caseID are not empty
     //MODIFIES:this
     //EFFECTS:is a set of basic information
     //        location is a number from 1~100, time is 0~24

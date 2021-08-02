@@ -76,7 +76,7 @@ public class Condition {
 
     // REQUIRES: x
     // MODIFIES: this
-    // EFFECTS: search pokemon by venue and return its basic information
+    // EFFECTS: search person by location and return its basic information
     public static boolean searchLocationCon(Record record, int location, int time, int caseID) {
         boolean found = false;
         if (location < locationMin || location > locationMax) {
