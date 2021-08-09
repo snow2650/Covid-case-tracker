@@ -1,15 +1,15 @@
 {
     "casesInfoS": [
         {
-            "caseID": 600,
-            "location": 2,
-            "time": 22
+            "caseID": 500,
+            "location": 3,
+            "time": 12
         },
         {
-            "caseID": 501,
-            "location": 1,
-            "time": 1
+            "caseID": 500,
+            "location": 4,
+            "time": 24
         }
     ],
-    "name": "A's record"
+    "name": "Area A's record"
 }

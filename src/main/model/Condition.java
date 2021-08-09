@@ -1,10 +1,12 @@
 package model;
 
+import ui.CaseFrame;
+
 import java.util.LinkedList;
 
 import static model.CaseList.caseCheck;
 
-public class Condition {
+public class Condition extends CaseFrame {
 
     private static final int locationMin = 1;
     private static final int locationMax = 100;

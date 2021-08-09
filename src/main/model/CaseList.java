@@ -28,6 +28,11 @@ public class CaseList {
         return answer;
     }
 
+    // EFFECTS: returns the answer
+    public static LinkedList<CaseInfo> getanswer() {
+        return answer;
+    }
+
 /*
     // MODIFIES: this
     // EFFECTS: check if the information follows the rules under each function

@@ -3,6 +3,8 @@ package model;
 import org.json.JSONObject;
 import persistence.Writable;
 
+import java.util.Objects;
+
 public class CaseInfo implements Writable {
     private int location;
     private int time;
@@ -46,13 +48,33 @@ public class CaseInfo implements Writable {
         return json;
     }
 
-    public boolean equals(CaseInfo caseInfo) {
-        if (this.getLocation() == caseInfo.getLocation()
-                && this.getTime() == caseInfo.getTime()
-                && this.getCaseID() == caseInfo.getCaseID()) {
+//    public boolean equals(CaseInfo caseInfo) {
+//        if (this.getLocation() == caseInfo.getLocation()
+//                && this.getTime() == caseInfo.getTime()
+//                && this.getCaseID() == caseInfo.getCaseID()) {
+//            return true;
+//        }
+//        return false;
+//    }
+
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
             return true;
         }
-        return false;
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        CaseInfo caseInfo = (CaseInfo) o;
+        return location == caseInfo.location
+                && time == caseInfo.time
+                && caseID == caseInfo.caseID;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(location, time, caseID);
     }
 
 }

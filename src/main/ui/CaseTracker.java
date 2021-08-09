@@ -12,9 +12,9 @@ import java.util.Scanner;
 public class CaseTracker {
     private static final String JSON_STORE = "./data/record.json";
     private Scanner input;
-    private Record record;
-    private JsonWriter jsonWriter;
-    private JsonReader jsonReader;
+    private static Record record;
+    private static JsonWriter jsonWriter;
+    private static JsonReader jsonReader;
 
     // EFFECTS: constructs record and runs the CaseTracker application
     public CaseTracker() throws FileNotFoundException {
@@ -187,7 +187,7 @@ public class CaseTracker {
     }
 
     // EFFECTS: saves the record to file
-    private void saveRecord() {
+    protected static void saveRecord() {
         try {
             jsonWriter.open();
             jsonWriter.write(record);
@@ -200,13 +200,18 @@ public class CaseTracker {
 
     // MODIFIES: this
     // EFFECTS: loads record from file
-    private void loadRecord() {
+    protected static void loadRecord() {
         try {
             record = jsonReader.read();
             System.out.println("Loaded " + record.getName() + " from " + JSON_STORE);
         } catch (IOException e) {
             System.out.println("Unable to read from file: " + JSON_STORE);
         }
+    }
+
+    // EFFECTS: returns the record
+    public static Record getRecord() {
+        return record;
     }
 
 
