@@ -7,6 +7,7 @@ public class Main {
         try {
             new CaseFrame();
             new CaseTracker();
+
         } catch (FileNotFoundException e) {
             System.out.println("Unable to run application: file not found");
         }
