@@ -20,7 +20,7 @@ public class Condition extends CaseFrame {
     private static final int idMin = 500;
     private static final int idMax = 999;
 
-    public static JLabel textlabel;
+    protected static JLabel textlabel;
 
     public static void textlabelInit() {
         textlabel = new JLabel();

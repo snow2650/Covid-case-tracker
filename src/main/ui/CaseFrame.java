@@ -16,7 +16,7 @@ import java.util.List;
 public class CaseFrame extends JFrame implements ActionListener, ChangeListener {
     JPanel panel0;
     JPanel panel;
-    public static JPanel textpanel;
+    protected static JPanel textpanel;
 
     JMenuBar menubar;
     JMenu fileMenu;
