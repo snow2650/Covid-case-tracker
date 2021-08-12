@@ -20,3 +20,27 @@ User Stories
 New features:
 - The user has ability to save the state of the application
 - The user can reload that state from file and resume exactly where they left off at some earlier time
+
+Phase 4: Task 2
+I choose to test my model package is robust. 
+The sliders are not user-friendly as I thought, even they can reduce the error from 
+manually filling in. Therefore, I decided to set Exceptions for Condition class in
+order to fit the future design.
+
+
+Phase 4: Task 3
+Each case has a basic data structure, location,time and ID, which is also a list of CaseInfo with a name.
+
+Record and CaseInfo implement Writable(Interface). Then Writable(Interface) will transfer them to JSON.
+
+Condition uses CaseInfoList, CaseInfo, and Record to check the constraint of the data.Then it extendsCaseFrame. 
+
+CaseInfoList is used for searching the data,so it would use Record to find the specific data. 
+
+CaseTracker is in charge of saving ang loading files.It would read the file from Record.
+
+If I have more time: 
+1. Some functions cannot show on GUI, such as message.
+2. Some codes repeat too much and should use composited pattern
+3. The filter function should also change the spot color of each condition(location, time and ID) for easy reading
+4. Cases have no order; therefore it can be store in the form of HashMap.

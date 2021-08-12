@@ -140,7 +140,7 @@ public class CaseFrame extends JFrame implements ActionListener, ChangeListener 
         locationSlider.setPaintTrack(true);
         locationSlider.setMajorTickSpacing(25);
         locationSlider.setPaintLabels(true);
-        locationSlider.setFont(new Font("MV Boli", Font.PLAIN, 35));
+        locationSlider.setFont(new Font("MV Boli", Font.PLAIN, 25));
         locationSlider.addChangeListener(this);
 
         labellocationSlider.setText("Location: " + locationSlider.getValue());
@@ -155,7 +155,7 @@ public class CaseFrame extends JFrame implements ActionListener, ChangeListener 
         locationSliderbutton = new JButton();
 
         locationSliderbutton.setText("submit");
-        locationSliderbutton.setFont(new Font("MV Boli", Font.PLAIN, 35));
+        locationSliderbutton.setFont(new Font("MV Boli", Font.PLAIN, 25));
         locationSliderbutton.setFocusable(false);
         locationSliderbutton.setBounds(200, 100, 100, 50);
         locationSliderbutton.addActionListener(this);
@@ -173,7 +173,7 @@ public class CaseFrame extends JFrame implements ActionListener, ChangeListener 
         caseIDSlider.setPaintTrack(true);
         caseIDSlider.setMajorTickSpacing(125);
         caseIDSlider.setPaintLabels(true);
-        caseIDSlider.setFont(new Font("MV Boli", Font.PLAIN, 35));
+        caseIDSlider.setFont(new Font("MV Boli", Font.PLAIN, 25));
         caseIDSlider.addChangeListener(this);
 
         labelcaseIDSlider.setText("caseID: " + caseIDSlider.getValue());
@@ -185,7 +185,7 @@ public class CaseFrame extends JFrame implements ActionListener, ChangeListener 
     public void caseIDSliderButton() {
         caseIDSliderbutton = new JButton();
         caseIDSliderbutton.setText("submit");
-        caseIDSliderbutton.setFont(new Font("MV Boli", Font.PLAIN, 15));
+        caseIDSliderbutton.setFont(new Font("MV Boli", Font.PLAIN, 25));
         caseIDSliderbutton.setFocusable(false);
         caseIDSliderbutton.setBounds(200, 100, 100, 50);
         caseIDSliderbutton.addActionListener(this);
@@ -202,7 +202,7 @@ public class CaseFrame extends JFrame implements ActionListener, ChangeListener 
         timeSlider.setPaintTrack(true);
         timeSlider.setMajorTickSpacing(6);
         timeSlider.setPaintLabels(true);
-        timeSlider.setFont(new Font("MV Boli", Font.PLAIN, 35));
+        timeSlider.setFont(new Font("MV Boli", Font.PLAIN, 25));
         timeSlider.addChangeListener(this);
 
         labelTimeSlider.setText("Time: " + timeSlider.getValue());
@@ -216,7 +216,7 @@ public class CaseFrame extends JFrame implements ActionListener, ChangeListener 
         timeSliderbutton = new JButton();
 
         timeSliderbutton.setText("submit");
-        timeSliderbutton.setFont(new Font("MV Boli", Font.PLAIN, 35));
+        timeSliderbutton.setFont(new Font("MV Boli", Font.PLAIN, 25));
         timeSliderbutton.setFocusable(false);
         timeSliderbutton.setBounds(200, 100, 100, 50);
         timeSliderbutton.addActionListener(this);
@@ -229,7 +229,7 @@ public class CaseFrame extends JFrame implements ActionListener, ChangeListener 
         inputSliderbutton = new JButton();
 
         inputSliderbutton.setText("submit");
-        inputSliderbutton.setFont(new Font("MV Boli", Font.PLAIN, 35));
+        inputSliderbutton.setFont(new Font("MV Boli", Font.PLAIN, 25));
         inputSliderbutton.setFocusable(false);
         inputSliderbutton.setBounds(200, 100, 100, 50);
         inputSliderbutton.addActionListener(this);
@@ -241,7 +241,7 @@ public class CaseFrame extends JFrame implements ActionListener, ChangeListener 
         deleteSliderbutton = new JButton();
 
         deleteSliderbutton.setText("submit");
-        deleteSliderbutton.setFont(new Font("MV Boli", Font.PLAIN, 35));
+        deleteSliderbutton.setFont(new Font("MV Boli", Font.PLAIN, 25));
         deleteSliderbutton.setFocusable(false);
         deleteSliderbutton.setBounds(200, 100, 100, 50);
         deleteSliderbutton.addActionListener(this);

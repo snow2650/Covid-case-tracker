@@ -1,14 +1,74 @@
 {
     "casesInfoS": [
         {
-            "caseID": 500,
-            "location": 3,
-            "time": 12
+            "caseID": 999,
+            "location": 100,
+            "time": 24
         },
         {
             "caseID": 500,
-            "location": 4,
+            "location": 100,
             "time": 24
+        },
+        {
+            "caseID": 699,
+            "location": 50,
+            "time": 12
+        },
+        {
+            "caseID": 699,
+            "location": 38,
+            "time": 12
+        },
+        {
+            "caseID": 699,
+            "location": 38,
+            "time": 6
+        },
+        {
+            "caseID": 873,
+            "location": 38,
+            "time": 6
+        },
+        {
+            "caseID": 762,
+            "location": 68,
+            "time": 6
+        },
+        {
+            "caseID": 762,
+            "location": 5,
+            "time": 6
+        },
+        {
+            "caseID": 762,
+            "location": 27,
+            "time": 19
+        },
+        {
+            "caseID": 762,
+            "location": 27,
+            "time": 17
+        },
+        {
+            "caseID": 762,
+            "location": 27,
+            "time": 4
+        },
+        {
+            "caseID": 653,
+            "location": 27,
+            "time": 20
+        },
+        {
+            "caseID": 653,
+            "location": 57,
+            "time": 20
+        },
+        {
+            "caseID": 653,
+            "location": 17,
+            "time": 20
         }
     ],
     "name": "Area A's record"
