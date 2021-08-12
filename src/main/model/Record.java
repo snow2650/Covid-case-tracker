@@ -45,7 +45,6 @@ public class Record implements Writable {
     }
 
     // EFFECTS: returns things in this record as a JSON array
-
     private JSONArray caseinfoToJson() {
         JSONArray jsonArray = new JSONArray();
         for (CaseInfo a : casesinfoS) {
@@ -53,6 +52,4 @@ public class Record implements Writable {
         }
         return jsonArray;
     }
-
-
 }

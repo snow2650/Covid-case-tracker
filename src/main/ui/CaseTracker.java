@@ -30,10 +30,6 @@ public class CaseTracker {
     private void runTracker() {
         boolean keepGoing = true;
         String command;
-        //caseInfos = new LinkedList();
-        //input = new Scanner(System.in);//if need a non empty list,remove this line
-
-        //init(caseInfos);
         while (keepGoing) {
             displayMenu();
             command = input.next().toLowerCase();
@@ -45,22 +41,6 @@ public class CaseTracker {
         }
         System.out.println("\nGood Bye! Wish you healthy!");
     }
-/*
-
-    private void init(LinkedList<CaseInfo> caseInfos) {
-        caseInfos.addLast(new CaseInfo(1,0,500));
-        caseInfos.addLast(new CaseInfo(1,1,645));
-        caseInfos.addLast(new CaseInfo(22,1,645));
-        caseInfos.addLast(new CaseInfo(33,1,645));
-        caseInfos.addLast(new CaseInfo(44,12,500));
-        caseInfos.addLast(new CaseInfo(44,12,700));
-        caseInfos.addLast(new CaseInfo(55,20,800));
-        caseInfos.addLast(new CaseInfo(99,24,999));
-        caseInfos.addLast(new CaseInfo(100,24,999));
-
-        input = new Scanner(System.in);
-    }
- //*/
 
     // MODIFIES: this
     // EFFECTS: processes user command
@@ -92,9 +72,6 @@ public class CaseTracker {
         System.out.println("\tr -> remove information");
 
         System.out.println("\tf -> find basic information");
-        //System.out.println("\tl -> search by location");
-        //System.out.println("\tt -> search by time");
-        //System.out.println("\tc -> search by case ID");
         System.out.println("\ta -> print all information");
 
         System.out.println("\ts -> save the record");
@@ -118,8 +95,6 @@ public class CaseTracker {
             System.out.println("selection not valid...");
         }
     }
-
-
 
 
     // MODIFIES: this, caseInfos
@@ -213,8 +188,4 @@ public class CaseTracker {
     public static Record getRecord() {
         return record;
     }
-
-
-
-
 }

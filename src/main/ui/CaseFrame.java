@@ -16,7 +16,7 @@ import java.util.List;
 public class CaseFrame extends JFrame implements ActionListener, ChangeListener {
     JPanel panel0;
     JPanel panel;
-    private static JPanel textpanel;
+    public static JPanel textpanel;
 
     JMenuBar menubar;
     JMenu fileMenu;
@@ -296,6 +296,8 @@ public class CaseFrame extends JFrame implements ActionListener, ChangeListener 
         if (e.getSource() == deleteItem) {
             updated(panel);
             locationSlider();
+            timeSlider();
+            caseIDSlider();
             deleteSliderButton();
         }
     }
@@ -341,7 +343,6 @@ public class CaseFrame extends JFrame implements ActionListener, ChangeListener 
                 numberofRepeat[i][j]++;
             }
             images.set(i * 10 + j, new ImageIcon("src/image/" + numberofRepeat[i][j] + ".png"));
-            //labels.get(i * 10 + j).setText("time: " + a.getTime());
         }
         labels.get(i * 10 + j).setIcon(images.get(i * 10 + j));
         labels.get(i * 10 + j).setFont(new Font("MV Boli", Font.PLAIN, 12));
@@ -383,6 +384,8 @@ public class CaseFrame extends JFrame implements ActionListener, ChangeListener 
 
         if (e.getSource() == deleteSliderbutton) {
             location = locationSlider.getValue();
+            time = timeSlider.getValue();
+            caseID = caseIDSlider.getValue();
             Condition.removeInfoCon(CaseTracker.getRecord(), location, time, caseID);
             answer = CaseTracker.getRecord().getCaseInfo();
             renderfunction();

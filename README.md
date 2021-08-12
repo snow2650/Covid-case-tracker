@@ -33,9 +33,9 @@ Each case has a basic data structure, location,time and ID, which is also a list
 
 Record and CaseInfo implement Writable(Interface). Then Writable(Interface) will transfer them to JSON.
 
-Condition uses CaseInfoList, CaseInfo, and Record to check the constraint of the data.Then it extendsCaseFrame. 
+Condition uses CaseList, CaseInfo, and Record to check the constraint of the data.Then it extendsCaseFrame. 
 
-CaseInfoList is used for searching the data,so it would use Record to find the specific data. 
+CaseList is used for searching the data,so it would use Record to find the specific data. 
 
 CaseTracker is in charge of saving ang loading files.It would read the file from Record.
 

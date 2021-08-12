@@ -7,7 +7,7 @@ public class CheckBoolean {
     // MODIFIES: this
     // EFFECTS: check if the information follows the rules under each function
     public static boolean checkBoolean(LinkedList<CaseInfo> caseInfos,
-                                        String type, int location, int time, int caseID, int i) {
+                                       String type, int location, int time, int caseID, int i) {
         switch (type) {
             case "i":
             case "r":

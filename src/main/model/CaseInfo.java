@@ -15,7 +15,6 @@ public class CaseInfo implements Writable {
     //EFFECTS:is a set of basic information
     //        location is a number from 1~100, time is 0~24
     //        Different caseIDs represent different persons from 500-999
-
     public CaseInfo(int location, int time, int caseID) {
         this.location = location;
         this.time = time;
@@ -47,16 +46,6 @@ public class CaseInfo implements Writable {
         json.put("caseID", caseID);
         return json;
     }
-
-//    public boolean equals(CaseInfo caseInfo) {
-//        if (this.getLocation() == caseInfo.getLocation()
-//                && this.getTime() == caseInfo.getTime()
-//                && this.getCaseID() == caseInfo.getCaseID()) {
-//            return true;
-//        }
-//        return false;
-//    }
-
 
     @Override
     public boolean equals(Object o) {
