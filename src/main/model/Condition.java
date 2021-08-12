@@ -30,7 +30,6 @@ public class Condition extends CaseFrame {
         textpanel.repaint();
     }
 
-    // REQUIRES: x
     // MODIFIES: this
     // EFFECTS: return the information if add successfully, otherwise return error message
     public static void inputInfoCon(Record record, int location, int time, int caseID) {
@@ -47,7 +46,7 @@ public class Condition extends CaseFrame {
         textpanel.add(textlabel);
     }
 
-    // REQUIRES: x
+
     // MODIFIES: this
     // EFFECTS: delete the info that already exists and return message
     public static void removeInfoCon(Record record, int location, int time, int caseID) {
@@ -64,7 +63,7 @@ public class Condition extends CaseFrame {
         textpanel.add(textlabel);
     }
 
-    // REQUIRES: x
+
     // MODIFIES: this
     // EFFECTS: search person by number and return its basic information
     public static boolean searchIDCon(Record record, int location, int time, int caseID) {
@@ -82,7 +81,7 @@ public class Condition extends CaseFrame {
         return found;
     }
 
-    // REQUIRES: x
+
     // MODIFIES: this
     // EFFECTS: search person by location and return its basic information
     public static boolean searchLocationCon(Record record, int location, int time, int caseID) {
@@ -100,7 +99,7 @@ public class Condition extends CaseFrame {
         return found;
     }
 
-    // REQUIRES: x
+
     // MODIFIES: this
     // EFFECTS: search a case by time and return its basic information
     public static boolean searchTimeCon(Record record, int location, int time, int caseID) {
