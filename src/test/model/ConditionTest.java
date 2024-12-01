@@ -133,12 +133,6 @@ public class ConditionTest {
         }
     }
 
-    @Test
-    public void searchIDConTest() {
 
-
-
-
-    }
 }
 
